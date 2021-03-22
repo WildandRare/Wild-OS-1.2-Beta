@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html style="cursor: url(wildosbmp.cur), auto;">
+    <head>
+        <title> Wild OS</title>
+
+        <link rel="icon" type="image/gif/png" href="system/images/doc/wildlogo.png">
+        <script src="system/scripts/dockappender.js"></script>
+        <script src="system/scripts/dockappender.js"></script>
+        <script src="system/scripts/notiflicationbrodcaster.js"></script>
+        <script src="appcenterdisplay.js"></script>
+        <script src="dockhover.js"></script>
+         <script src="checkifsetup.js"></script>
+        <script src="settings.js"></script>
+        <script src="alarms.js"></script>
+        <script src="callnoti.js"></script>
+        <link href="main-rule.css" rel="stylesheet">
+        
+                                <div style="height: 1000vw; width: 100%; background-color: black; z-index: 10; color: white; font-family: InterBlack; display: block; " id="checkno">
+                                    <br>
+                                    <br>
+            Please enter your activation code here.
+                            <input type="text" maxlength="3"; id="actcodeinput" onkeydown="checkcode()">
+        </div>
+        <div id="screensupport" style="display: none; /* delete in publish */">
+                   <h1>Wild OS is not compatible with your screen size. We are making Wild OS avaliable to more screen sizes currently.</h1>                 
+        </div>
+        
+        
+        
+        <br>
+        
+        
+        
+        <div id="dock"  onmouseout ="opena()">
+            <img src="system/images/doc/dropdown.svg"  id="dropdown">
+            <img>
+            <img src="system/images/doc/wildlogo.png" style="width: 2vw; height: 2vw; position: absolute; top: 5vw; margin-left: 46.4%" id="logodock" onclick="seeandcomplete()">
+            
+              
+            
+            
+            
+            
+                    <div id="docicons"  onmouseout ="opena()" style="" onclick="seeandcomplete2()">
+ 
+        
+        </div>
+            
+            
+        
+        </div>
+        
+        
+        
+        
+        <audio autoplay>
+  <source src="startup.mp4" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+        
+
+        
+        
+        
+        
+        
+        
+    </head>
+    <body id="mainbody" onload="opendock(), starthover(), myFunction(), activatecheck(), displaycode(), change(), docknormal()" style="background-color: orange;"  >
+        <!--<input id="me"> -->
+<script>
+            localStorage.setItem("#dockeraa", "rgba(0, 0, 0, 0.5)")
+    localStorage.setItem("bd", "url(https://www.publicdomainpictures.net/pictures/20000/velka/orangeyellow-background-1328283264Q9r.jpg)")
+        </script>
+        <script>
+            setInterval(function() {
+                checkForNoti();
+                sendNoti('none')
+                    localStorage.setItem("noti", "none")
+            }, 1)
+        </script>
+        <!--button onclick="sendNoti(document.getElementById('me').value)">Praise the Lord!</button>-->
+        <div id="apps" style="background-color: floralwhite; width: 90vw; height: 40vw; position: relative;  right: -5vw; border-radius: 25px; top: 2vw; display: none; z-index: 200;"> 
+        
+            <img src="system/images/apps/wildandrare.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Wild and Rare')"  onclick="seeandcomplete(), okay('system/images/apps/wildandrare.png', '2vw', '2vw', 'WildandRare',  'https://wildandrare.github.io/wildandrare/index.html')  ">
+            
+            <img src="system/images/apps/functioner.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Functions')" onclick="seeandcomplete(), okay('system/images/apps/functioner.png', '2vw', '2vw', 'Functions',  'functions.html')  " > 
+            
+            <img src="amongusai.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Among Us AI - By KevinGames') "  onclick="seeandcomplete(), okay('amongusai.png', '2vw', '2vw', 'AmongUsAI',  'https://amongusplay.online')    ">
+            <img src="snakeio.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Snake IO') "  onclick="seeandcomplete(), okay('snakeio.png', '2vw', '2vw', 'SnakeIO',  'https://snake.io')  ">
+            <img src="downloads.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Downloads') "  onclick="seeandcomplete(), okay('downloads.png', '2vw', '2vw', 'Downloads',  'downloads.html')  ">
+            
+            <img src="system/images/apps/settings.png" style="width: 10vw; height: 10vw;" onmouseover ="enterhoverapp('Downloads') "  onclick="seeandcomplete(), okay('system/images/apps/settings.png', '2vw', '2vw', 'Settings',  'settingsapp.html')  ">
+
+            
+            <div style="width: 4vw; height: 4vw; background-color: rgba(128, 128, 128, 0.36); border-radius: 25px; position: relative;  right:-86vw; top: -10.3vw" onclick="seeandcomplete()"></div>
+        </div>
+                    <div id="timewidget"></div>
+        
+        
+        
+                    <div id="wildassistantwidget"style="background-color: red; width: 10vw; height: 5vw; vertical-align: bottom; bottom: 1vw; position: absolute; border-radius: 10px; background-image: linear-gradient(200deg, yellow, #ff6c00); opacity: 10px; left: 12vw; z-index: -1;">
+        
+        
+                        <textarea style="width: 7vw; border-radius: 0vw; background-color: orangered; height: 4.75vw; vertical-align:text-top; resize: none; border-bottom-left-radius: 10px; border-top-left-radius: 10px; animation-name: scale; animation-duration: 2s; " placeholder="Talk to Wild Assistant" onkeyup="this.value = 'This currently does not work. Wild assistant is not fully developed.';" onclick="callNotiflication('Wild assistant is a work in progress.');"></textarea>
+                        
+                        
+        
+        </div>
+        
+        <div id="dailycontent">
+            <p>You have no daily content. Click the button to get daily content.</p>
+            <button id="getdailycontent" onclick="okay('system/images/apps/wildandrare.png', '2vw', '2vw', 'Content',  'getdailycontent.html')">Get daily content here</button>
+        </div>
+        
+        <div style="background-color: rgba(80, 80, 80, 0.58); width: 90vw; height: 40vw; position: relative;  right: -5vw; border-radius: 25px; top: 2vw; display: none /*put none in publish*/; z-index: 200;" id="noti." ondblclick="seeandcomplete2()">
+            
+            
+            
+            
+            
+            <div style="background-color: rgba(255, 0, 0, 0.58); width: 90vw; height: 5vw; border-radius: 25px; top: 2vw; display: block; z-index: 200;">
+            
+                <br><h1>Notification Center is a Work-In-Progress. Double click anywhere on this Notiflication Center to close it.
+                </h1> <!--<button style="width: 5vw; height: 3vw; position: absolute; bottom: 36vw; right: 0vw;"> <p style="position: relative; bottom: 0vw; right: 0vw;">Go To Wild OS Tutorial</p></button> -->
+            <br>
+                
+            </div>
+            
+            <img src="system/images/alarm:clock.png" style="width: 2.5vw; height: 2.5vw;" onclick="okay('system/images/alarm:clock.png', '2vw', '2vw', 'Alarms',  'alarm.html'), seeandcomplete2()">
+        
+            <!--createNewElem(button, ["background-color", "red"], "Click Me!", [])-->
+            
+            
+            
+        </div>
+        <script>setInterval(function() {
+      var hrc = new Date();
+  var hr = hrc.getHours();
+      var mec = new Date();
+  var me = mec.getMinutes();
+    
+          var mdc = new Date();
+  var md = mdc.getMilliseconds();
+    
+              var sdc = new Date();
+  var sd = sdc.getSeconds();
+    for (var i = 0; i < alarms.length; i++) {
+                if (hr == alarms[i].hour) {
+
+                if (me == alarms[i].minute) {
+
+                    if (sd == 1) {
+
+                               alert("Alarm!")
+        }   
+
+                }
+
+        }
+    }
+
+
+}, 1)</script>
+                <div style="background-color: rgb(131, 0, 0); width: 90vw; height: 40vw; position: relative;  right: -5vw; border-radius: 25px; top: 2vw; display:none; z-index: 200;" id="alarmsring">
+                    <br>
+                    <h1 id="jsims">Name</h1>
+                    <h2 id="des">Description</h2>
+                    <h2 id="alarmtype">Type</h2>
+                <button style="width: 100%" id="dismiss" onclick="document.getElementById('alarmsring').style.display = 'none';">Dismiss</button>
+        
+            <style>
+                #dismiss {
+                    animation: dismiss 2s linear infinite;
+                    animation-timing-function: linear;
+                    transition: all 2s;
+                }
+                @keyframes dismiss {
+                    0% {background-image: linear-gradient(blue, yellow)}
+                    50% {background-image: linear-gradient(yellow, blue)}
+                    100% {background-image: linear-gradient(blue, yellow)}
+                }
+                </style>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        <script>
+            function dragFile() {
+                this.style.width = "17vw"
+            }
+            setInterval(function() {testAlarmReceiver()}, 5000)
+            var alarm;
+        </script>
+<script>
+function myFunction() {
+  setInterval(function(){
+                                  var d = new Date();
+var h = d.getHours();
+      var n = d.getMinutes();
+    var hd;
+      var md;
+      var td;
+      if (h > 12) {
+          hd = h - 12;
+      } else {
+          hd = h;
+      }
+      
+            if (h > 11) {
+          td = "PM";
+      } else {
+          td = "AM";
+      }
+      
+      md = 7 + '0';
+      if (n < 10) {
+          md = '0' + n;
+      } else {
+          md = n;
+      }
+      
+      if (hd == "0") {
+          hd = "12";
+      }
+  var n = d.getMinutes();
+            document.getElementById('timewidget').innerHTML = `<h1 style="font-size: 2vw;">${hd} : ${md} <p style="font-size: 0.5vw;;"> ${td}</p> </h1>`;
+  }, 1);
+}
+      
+
+        </script>
+        
+        <style>
+                    <!-- -->
+        </style>
+        
+ 
+        
+        
+
+
+
+      
+        
+        
+        
+        
+        
+    </body>
+</html>

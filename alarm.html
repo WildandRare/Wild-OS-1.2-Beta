@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="alarms.js"></script>
+        <style>
+            @font-face {
+                  font-family: Inter;
+                    src: url(fonts/Inter-Black.ttf);
+            }
+            body{
+                background-color: darkred;
+                font-family: Inter;
+            }
+            button, input, select {
+                background-color: red;
+                border-style: solid;
+                border-color: black;
+                border-radius: 5px;
+                    font-family: Inter;
+                width: 10vw;
+                height: 4vw;
+                transition: width 1s;
+            }
+            
+            button:hover {
+                background-color: #e60000;
+                width: 13vw;
+            }
+            #setalarm {
+                background-color: #4d0000;
+                width: 85vw;
+                height:25vw;
+                border-radius: 10px;
+            }
+            
+            input:hover, select:hover {
+                height: 6vw;
+            }
+            input, select {
+                              transition: height 1s;
+            }
+            
+            .alarmset:hover {
+                width: 50vw;
+            }
+        </style>
+    </head>
+    <body onload="loadAlarms()">
+        <h1>Alarms</h1>
+        <p>There are no alarms set currently.</p>
+        <button onclick="seeandcompletealarm()">Set Alarm</button>
+        <br>
+        <br>
+        
+        <style>
+/* width */
+::-webkit-scrollbar {
+  width: 5vw;
+  opacity: 0.5;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-image: url("https://i.imgur.com/IGdFLgu.png")
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #be0000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(80, 45, 80, 0.5); 
+}
+</style>
+        <div id="setalarm" style="display: none;">
+            <button style="height: 15vw" onclick="changeDate()"><span>Auto-Change Alarm Date to <span style="color: yellow;">Today</span></span></button>
+            <input placeholder="Name" value="" id="name">
+            <input placeholder="Description (Optional)" value="" style="width: 10vw;" id="description">
+            <input placeholder="Hour" value="" maxlength="2" id="hr">
+            <input placeholder="Minute" value="" maxlength="2" id="me">
+            
+            <select id="alarmtype">
+                <option value="a">Once</option>
+                <option value="b">Repetitive</option>
+            </select>
+        
+            <input placeholder="Minute" value="" type="date" id="date" style="width: 15vw;">
+            <select id="ampm">
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+            <select style="display: none;">
+                <option>Sunday</option>
+                <option>Monday</option>
+                                <option>Tuesday</option>
+                <option>Wednesday</option>
+                                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+            </select>
+            
+            <br>
+            <br>
+            
+            <script>
+                function changeDate() {
+                    document.getElementById("date").value = fullDate();
+                }
+                function fullDate() {
+ 	var date = new Date();
+    var year = date.getFullYear();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    if (day.toString().length == 1){
+     if (month.toString().length == 1) {
+      var fulldate = year + "-0" + month + "-0" + day;
+     } else {
+        var fulldate = year + "-" + month + "-0" + day;
+     }
+    } else {
+         if (month.toString().length == 1) {
+      var fulldate = year + "-0" + month + "-" + day;
+     } else {
+        var fulldate = year + "-" + month + "-" + day;
+     }
+    }
+    return fulldate;
+}
+            </script>
+            <button  onclick="seeandcompletealarm(), setAlarm(), storeAlarms()">Set</button>
+            
+            <script>
+                function seeandcompletealarm() {
+                    if (document.getElementById('setalarm').style.display == "none") {
+                        document.getElementById('setalarm').style.display = "block";
+                        document.getElementById('description').value = "";
+                        document.getElementById('name').value = ""; // <-- ERROR WAS IN THIS LINE
+                        document.getElementById('hr').value = "";
+                        document.getElementById('me').value = ""; // <-- ERROR WAS IN THIS LINE
+                    } else {
+                        if(document.getElementById('date').value != "") {
+                        document.getElementById('setalarm').style.display = "none";
+                                           var newalarm = document.createElement("DIV");
+                        newalarm.innerHTML = `<div style="width: 70vw; height: 25vw; background-color: #380000; border-radius: 5px;" class="alarmset"><div><h1>${document.getElementById('name').value}</h1> <p>${document.getElementById('description').value}</p><p>${document.getElementById('hr').value}:${document.getElementById('me').value} ${document.getElementById('ampm').value}</p></div></div>`;
+                        document.getElementById("alarms").appendChild(newalarm)
+                        }
+                    }
+                }
+                function storeAlarms() {
+                    localStorage.setItem("alarms", document.getElementById("alarms").innerHTML)
+                }
+                function loadAlarms() {
+                    var alarms = localStorage.getItem("alarms")
+                    document.getElementById("alarms").innerHTML = alarms
+                }
+                function clearAlarms() {
+                    localStorage.setItem("alarms", "")
+                    loadAlarms()
+                }
+            </script>
+
+        </div>
+        <button onclick="clearAlarms()" style="width: 50vw">Clear Alarm Queue <span style="color: rgba(0, 0, 0, 0.43);">This does not "unset" your alarms.</span></button>
+        <div id="alarms">
+            <div style="width: 70vw; height: 25vw; background-color: #380000; border-radius: 5px;"><div><h1>Name</h1> 
+            <p>Des cript fdgdfgdf.</p> <p>0:00 AM</p></div></div>
+        </div>
+    </body>
+</html>

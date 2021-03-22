@@ -1,0 +1,125 @@
+HTML NAVIGATIONBAR :
+            <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+
+
+
+
+
+JavaScript/HTML Add :
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(adder) {
+if (adder.includes("add") && adder.includes("plus")) {
+	  var str = adder;
+  var res = str.split("add")[1];
+  var out = parseInt(res.split("plus")[0]) + parseInt(res.split("plus")[1])
+
+  return out;
+  
+}
+
+
+
+if (adder.includes("add") && adder.includes("+")) {
+	  var str = adder;
+  var res = str.split("add")[1];
+  var out = parseInt(res.split("+")[0]) + parseInt(res.split("+")[1])
+
+  return out;
+  
+}
+
+
+}
+document.getElementById("demo").innerHTML = myFunction("add 10 + 1");
+</script>
+
+</body>
+</html>
+
+$var firstname = "Ethan";
+quickDisplay(firstname);
+$lockedvar lastname = "Ayodeji";
+quickDisplay(lastname)
+$numbervar yearage = 10;
+$array parents = ["Adediwura", "Oladotun"];
+$objectarray parents age = [39, 41];
+quickArray(age);
+quickArray(parents[0]);
+quickArray(parents[0].age);
+quickArray(",");
+quickArray(parents[1]);
+quickArray(parents[1].age);
+quickDisplay @button.("Try Me!")
+createNewElem(button, [], "Try Me!", ["onclick", js"alert("F")"])
+
+{quicikDisplay()canvas@(
+ createCanvasElem(red{
+ 100, 100, 100, 100 [wait(start{
+ visible.show
+ })]
+ })
+)}
+
+[{|%}]
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button get the text content of the button element.</p>
+
+<button onclick="myFunction()" id="myBtn" contentedible="true"><span style="background-color: red;">Try</span></button>
+
+<p><strong>Note:</strong> The textContent property is not supported in Internet Explorer 8 and earlier.</p>
+<div contenteditable="true" id="Yay!">Hey! I was <span style="background-color: red;">doing</span> my laundry before you came.</div>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("Yay!").textContent;
+  document.getElementById("demo").innerHTML = x;  
+} 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="main-rule.css" rel="stylesheet">
+    </head>
+    <body id="startbody" onload="devcode()">
+        <div>
+            <script src="checkifsetup.js"></script>
+            <div id="welcome">
+                <h1>Welcome to WildOS Beta! The Future of the Web</h1>
+                                <p>Welcome to Wild OS! This is a operating system created by the Wild and Rare youtube channel.</p>
+                                <span>Working Alarms</span>
+                                <span>Working Settings</span>
+                                <span>Ability to Close Apps</span>
+                <img>
+                <pre>Wild OS Beta I <span></span> Version 1.2</pre>
+                <button onclick='gotosecond()'>Continue to setup</button>
+            </div>
+            
+
+            
+            <style>
+                span::before{
+                    content: "•";
+                    color: red
+                }
+            </style>
+            
+            
+            
+            <div id="codeapply">
+                <h1>Do you have a save code that you would like to apply?</h1>
+                <p id="codesub">This is a work-in-progress, therefore, skip this step by pressing the button that says "Apply Code" below.</p>
+                <input disabled>
+                <button onclick="gotothird()">Apply Code</button>
+            </div>
+            
+            
+            
+            
+            
+            
+                      <div id="actcode">
+                <h1 id="activationcode">You will be asked to put in an activation code. Your activation code is : 123.</h1>
+
+                <button onclick="gotofourth()">Okay</button>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+             <div id="uichoose">
+                <h1>What UI would you like to use?</h1>
+                                                   <p id="codesub" style="font-size: xx-small;">This feature does not work currently. Therefore, Wild OS UI will be used.</p>
+                    <select>
+                    <option>Wild OS</option>
+                        <option disabled>Wild OS Kids</option>
+                    <option disabled>Windows 10</option>
+                    <option disabled>Mac OS  Mojave</option>
+
+                 </select>
+
+                <button onclick="gotofifth()">Okay</button>
+            </div>
+            
+            
+            
+            
+            <div id="gettingready">
+                <h1>Getting Ready. Wait.</h1>
+                        <progress value="0" max="100" id="file"></progress>
+                
+            </div>
+
+                <script>
+                    function gotosecond() {
+                        document.querySelector('#welcome').style.display = "none";
+                        document.querySelector('#codeapply').style.display = "block";
+                    }
+                    
+                    function gotothird() {
+                        document.querySelector('#codeapply').style.display = "none";
+                        document.querySelector('#actcode').style.display = "block";
+                    }
+                    
+                    function gotofourth() {
+                        document.querySelector('#actcode').style.display = "none";
+                        document.querySelector('#uichoose').style.display = "block";
+                    }
+                    
+                     function gotofifth() {
+                        document.querySelector('#uichoose').style.display = "none";
+                        document.querySelector('#gettingready').style.display = "block";
+                         setInterval(function(){document.getElementById("file").value + document.getElementById("file").value + 200; }, 500);
+                        setTimeout(function(){ window.location.replace("main.html"); }, 2000)
+                    }
+                </script>
+            
+        </div>
+    </body>
+</html>

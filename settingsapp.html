@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="dockhover.js"></script>
+        <script src="settings.js"></script>
+        <link href="main-rule.css" rel="stylesheet">
+    </head>
+    <body style="background-color: aliceblue;"  onmousemove="changeSettingColor('hi', document.getElementById('re').value)">
+        
+        <script>
+            setInterval(function() {changeSettingColor('hi', document.getElementById('re').value);}, 1)
+            setInterval(function() {widgetVis()}, 1)
+        </script>
+                <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+    
+}
+.active {
+  background-color: #939393;
+    color:aqua;
+}
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+                    .section {
+                        background-color: white;
+                        border-width: thin;
+                        border-color: black;
+                        border-style: solid;
+                        height: 7vw;
+                        /*width: 85vw;*/
+                        border-radius: 5px;
+                        font-family: InterBlack;
+                        font-size: 5vw;
+                    }
+</style>
+
+<ul >
+  <li onclick="this.classList.add('active')"><a href="#news">Personalization</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Display</a>
+  </li>
+    
+    
+  <li><a href="#about">Language</a></li>
+    
+    <li><a href="#contact">Time</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Dock</a>
+    <div class="dropdown-content">
+      <a href="#">Personalization</a>
+      <a href="#">Content</a>
+    </div>
+  </li>
+</ul>
+        
+        
+        
+        
+        
+        
+        
+        
+        <style>
+            #set {
+                width: 100%;
+                height: 100%;
+                font-size: 2vw;
+                background-color: #ebebeb;
+                border-width: 1px;
+                border-style: solid;
+                position: absolute;
+                top: 5vw;
+                font-family: InterBlack;
+            }
+            #settings {
+                background-color: aqua;
+                width: 50vw;
+                height: 46vw;
+                                position: relative;
+                top: 6.8vw;
+                right: -24.6vw;
+                      font-family: InterBlack;
+                resize: horizontal;
+  overflow: hidden;
+            }
+            #background_personalization {
+                border-radius: 0;
+                font-family: InterBlack;
+                font-size: 4vw;
+                
+                
+            }
+            
+       #wv {
+                border-radius: 0;
+                font-family: InterBlack;
+                font-size: 4vw;
+                
+                
+            }
+            
+                        #bd {
+                border-radius: 0;
+                font-family: InterBlack;
+                font-size: 4vw;
+                
+                
+            }
+        </style>
+        
+        <div>
+            <div class="tooltip">
+                Personalization
+                <h1>THe "Dock" setting currently does not work. We are trying to fix this problem.</h1>
+            </div>
+            <br>
+            <br>
+            <div class="section">Dock:  
+            <input type="color" id="re" style="width: 7vw;height: 6.7vw; float: right; border-bottom-right-radius: 5px; border-top-right-radius: 5px; background-color: azure; border-color: black;" >
+            </div>
+                
+            
+            <div class="section">Background:  <select id="bd">
+                <option value="url(https://www.publicdomainpictures.net/pictures/20000/velka/orangeyellow-background-1328283264Q9r.jpg)">Image</option>
+                <option id="gradient" value="0">Gradient</option>
+                    <option value="none">Solid Color</option>
+                
+
+                </select>
+            <input type="color" id="background_personalization" style="width: 7vw;height: 6.7vw; float: right; border-bottom-right-radius: 5px; border-top-right-radius: 5px; background-color: azure; border-color: black;">
+            </div>
+            
+            
+            
+        </div>
+        <script>
+        var lightenDarkenColor = function (col, amt) {
+	var usePound = false;
+	if (col[0] == "#") {
+		col = col.slice(1);
+		usePound = true;
+	}
+	var num = parseInt(col, 16);
+	var r = (num >> 16) + amt;
+	if (r > 255) {
+		r = 255;
+	} else if (r < 0) {
+		r = 0;
+	}
+	var b = ((num >> 8) & 0x00FF) + amt;
+	if (b > 255) {
+		b = 255;
+	} else if (b < 0) {
+		b = 0;
+	}
+	var g = (num & 0x0000FF) + amt;
+	if (g > 255) {
+		g = 255;
+	} else if (g < 0) {
+		g = 0;
+	}
+	return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+}
+
+        </script>
+        <script>
+            
+            setInterval(function () { 
+                var t = document.getElementById("background_personalization").value;
+                var ILTL = lightenDarkenColor(t, 120);
+                
+                document.getElementById("gradient").value = `linear-gradient(to right, ${t}, ${ILTL}, ${t})`; 
+            
+            }, 5)
+
+        </script>
+        <div class="section">Widget Visibility:  <select id="wv">
+                    <option value="block">on</option>
+                <option value="none">off</option>
+                </select>
+            </div>
+                
+
+        
+  
+        <!--
+            <select id="set">
+                <option>Personalization</option>
+                <option>Display</option>
+                <option disabled>Language</option>
+                <option>Time</option>
+                <option>Dock</option>
+            </select>
+        
+        -->
+        <!--
+        <div id="settings">
+        Personalization
+            <br>
+            <br>
+            <div>Background:  <select id="background_personalization">
+                    <option>Solid Color</option>
+                <option>Gradient</option>
+                <option>Image</option>
+                </select></div>
+
+        </div>
+-->
+        
+
+        <style>
+            @font-face {
+                
+                
+            }
+            .tooltip {
+  position: relative;
+  display: inline-block;
+                font-family: InterBlack;
+                font-size: 2vw;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+    font-family: InterBlack;
+                font-size: 10px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+            
+            @font-face {
+  font-family: InterBlack;
+  src: url(fonts/Inter-Black.ttf);
+}
+
+@font-face {
+  font-family: InterThin;
+  src: url(fonts/Inter-Thin.ttf);
+}
+        </style>
+        
+        <script>
+            setInterval(function(){ document.getElementById("background_personalization").innerHTML = document.getElementById("background_personalization").innerHTML + "hi" }, 3000);
+        </script>
+    </body>
+</html>
